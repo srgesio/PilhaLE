@@ -3,6 +3,7 @@ public class PilhaLE implements Pilha {
 	private Object arrayPilha[];
 	private int t = -1;
 	private int fc;
+	public Object gotenks[];
         
         //CONSTRUTOR DO OBJETO
 	public PilhaLE (int tam, int fc) {
@@ -11,21 +12,18 @@ public class PilhaLE implements Pilha {
 	}
 		//METODO DE CRESCIMENTO
 	public Object[] crescimento(int fc) {
-		Object gotenks[];
-		if(fc <= 0) {
-			gotenks = new Object[size()*2];
-			for(int i = 0; i < size(); i++) {
+		for(int i = 0; i < size(); i++) {
+			if(fc == 0) {
+				gotenks = new Object[size()*2];
 				gotenks[i] = arrayPilha[i];
-			}
-		}else {
-			gotenks = new Object[size()+fc];
-			for(int i = 0; i < size(); i++) {
+			}else {
+				gotenks = new Object[size()+fc];
 				gotenks[i] = arrayPilha[i];
 			}
 		}
-		return gotenks;		
+		return gotenks;
 	}
-	
+
         //ADCIONA ELEMENTO NO ARRAY
     public void push(Object o) {
         if (t == arrayPilha.length - 1) {
