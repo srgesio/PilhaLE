@@ -23,6 +23,7 @@ public class Main {
     	Scanner sc = new Scanner(System.in);
     	int tam;
         int fc;
+        No no = null;
         Object elemento;
         System.out.println("Digite o tamanho da pilha");
         tam = sc.nextInt();
@@ -39,7 +40,8 @@ public class Main {
                 case 1:
                     System.out.print("ADICIONAR: ");
                     elemento = zoy.next();
-                    minhaPilha.push(elemento);
+                    no.setElemento(elemento);
+                    minhaPilha.push(no);
                     break;
                 
                 case 2:

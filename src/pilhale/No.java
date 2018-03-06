@@ -7,7 +7,7 @@ package pilhale;
  */
 public class No {
     private Object elemento;
-    private No proximo;
+    private Object proximo;
     
     public Object getElemento() {
         return elemento;
@@ -15,10 +15,10 @@ public class No {
     public void setElemento(Object o){
         elemento = o;
     }
-	public No getProximo() {
+	public Object getProximo() {
 		return proximo;
 	}
-	public void setProximo(No proximo) {
+	public void setProximo(Object proximo) {
 		this.proximo = proximo;
 	}
 }
