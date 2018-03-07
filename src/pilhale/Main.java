@@ -42,7 +42,8 @@ public class Main {
                     elemento = zoy.next();
                     no.setElemento(elemento);
                     minhaPilha.push(no);
-                    
+                    System.out.println(no.getElemento());
+                    System.out.println(no.getProximo());
                     break;
                 
                 case 2:

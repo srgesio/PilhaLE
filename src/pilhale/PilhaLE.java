@@ -27,12 +27,12 @@ public class PilhaLE implements Pilha {
         //ADCIONA ELEMENTO NO ARRAY
     public void push(No no) {
     	Object elemento;
-    	elemento = no.getElemento(); 
+    	elemento = no.getElemento();
         if (t == arrayPilha.length - 1) {
         	arrayPilha = crescimento(fc);
         }
-        arrayPilha[++t] = no.getElemento();
-        no.setProximo(t);
+        arrayPilha[++t] = elemento;
+        no.setProximo(arrayPilha[t]);
         
     }
         

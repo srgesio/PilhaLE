@@ -6,8 +6,8 @@ package pilhale;
  * @author srgesio
  */
 public class No {
-    private Object elemento = null;
-    private Object proximo = null;
+    private Object elemento;
+    private Object proximo;
     
     public Object getElemento() {
         return elemento;
