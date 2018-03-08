@@ -32,9 +32,13 @@ public class PilhaLE implements Pilha {
         	arrayPilha = crescimento(fc);
         }
         arrayPilha[++t] = elemento;
-        no.setProximo(arrayPilha[t]);
-        
+        if (arrayPilha[t] == arrayPilha[0]) {
+        	no.setProximo(null);
+        }else {
+        	no.setProximo(arrayPilha[t-1]);   	
+        }      
     }
+    
         
          //MOSTRA O ULTIMO ELEMENTO INSERIDO, SEM REMOVER
 	public Object top() throws PilhaVazia{
