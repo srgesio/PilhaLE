@@ -1,73 +1,44 @@
 package pilhale;
 public class PilhaLE implements Pilha {
-	private Object arrayPilha[];
-	private int t = -1;
-	private int fc;
-	public Object gotenks[];
-        
-        //CONSTRUTOR DO OBJETO
-	public PilhaLE (int tam, int fc) {
-		arrayPilha = new Object[tam];
-        this.fc = fc;
+
+	private No topo;
+	private int tamanho;
+	
+	//ADD ELEMENTO
+	public void push(Object elemento) {
+		No no = new No(elemento, topo);
+		topo = no;
+		tamanho++;
 	}
-		//METODO DE CRESCIMENTO
-	public Object[] crescimento(int fc) {
-		for(int i = 0; i < size(); i++) {
-			if(fc == 0) {
-				gotenks = new Object[size()*2];
-				gotenks[i] = arrayPilha[i];
-			}else {
-				gotenks = new Object[size()+fc];
-				gotenks[i] = arrayPilha[i];
-			}
+	
+	//REMOVE ELEMENTO E INDICA O PROXIMO
+	public Object pop() throws PilhaVazia {
+		No proximo = topo;
+		if (proximo == null) {
+			throw new PilhaVazia();
+		}else {
+			topo = proximo.getProximo();
+			tamanho--;
 		}
-		return gotenks;
-	}
-
-        //ADCIONA ELEMENTO NO ARRAY
-    public void push(No no) {
-    	Object elemento;
-    	elemento = no.getElemento();
-        if (t == arrayPilha.length - 1) {
-        	arrayPilha = crescimento(fc);
-        }
-        arrayPilha[++t] = elemento;
-        if (arrayPilha[t] == arrayPilha[0]) {
-        	no.setProximo(null);
-        }else {
-        	no.setProximo(arrayPilha[t-1]);   	
-        }      
-    }
-    
-        
-         //MOSTRA O ULTIMO ELEMENTO INSERIDO, SEM REMOVER
-	public Object top() throws PilhaVazia{
-		if (isEmpty())
-			throw new PilhaVazia();
-		else
-			return arrayPilha[t];	
+		return proximo;
 	}
 	
-        //RETORNA SE ESTÃ� VAZIO OU NÃƒO
-	public boolean isEmpty() {
-		return t == -1;
-	}
-	
-        //RETORNA O TAMANHO DO ARRAY
+	//RETORNA O TAMANHO
 	public int size() {
-		return t+1;
+		return tamanho;
 	}
-	
-       
-        //REMOVE UM ELEMENTO E RETORNA O ULTIMO ELEMENTO INSERIDO
-	public Object pop() throws PilhaVazia{
-		if (isEmpty())
-			throw new PilhaVazia();
-		else
-			return arrayPilha[t--];
-	}
-	
-	
-        
 
+	//INDICA SE EST� VAZIA
+	public boolean isEmpty() {
+		return tamanho == 0;
+	}
+
+	//MOSTRA O TOPO
+	public Object top() throws PilhaVazia {
+		if(topo == null) {
+			throw new PilhaVazia();
+		}else {
+			return topo;
+		}
+	}
 }
