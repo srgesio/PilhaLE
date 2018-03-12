@@ -38,7 +38,17 @@ public class PilhaLE implements Pilha {
 		if(topo == null) {
 			throw new PilhaVazia();
 		}else {
-			return topo;
+			return topo.getElemento();
+		}
+	}
+	
+	public Object topProximo() throws PilhaVazia {
+		if(topo == null) {
+			throw new PilhaVazia();
+		}else {
+			
+			Object topoProximo = topo.getProximo().getElemento();
+			return topoProximo;
 		}
 	}
 }
